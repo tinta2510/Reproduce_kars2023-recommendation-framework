@@ -37,10 +37,15 @@ val_warm = ExperimentConfiguration('val_warm', dataset=amazon_book_simplex, expe
 
 beauty_warm = ExperimentConfiguration('beauty_warm', dataset=amazon_beauty, experiment=ExperimentEnum.WARM_START, folds=1)
 
+new_last_fm_cold_start = ExperimentConfiguration(
+    'new_last_fm_cold_start',  # Unique name of the experiment
+    dataset=new_last_fm,       # Reference the DatasetConfiguration from datasets.py
+    experiment=ExperimentEnum.ITEM_COLD_START  # Choose the type of experiment (e.g., WARM_START or COLD_START)
+)
 
 experiments = [mr_warm_start, ml_mr_1m_warm_start, ml_user_cold_start, ml_user_cold_start_1250, st_1m_warm_start,
                lfm_warm_start, ab_full_warm_start, ab_warm_start, st_16_warm_start, test_warm, val_warm, beauty_warm,
-               ab_user_cold_start]
+               ab_user_cold_start, new_last_fm_cold_start]
 experiment_names = [e.name for e in experiments]
 
 # Create dgl experiments

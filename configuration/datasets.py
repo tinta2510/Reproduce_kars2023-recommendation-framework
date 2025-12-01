@@ -28,7 +28,11 @@ amazon_book_simplex = DatasetConfiguration('amazon-book-simplex', lambda x: x,
                               filters=[CountFilter(lambda c: c >= 5, sentiment=Sentiment.POSITIVE)])
 amazon_beauty = DatasetConfiguration('amazon-beauty-idcf', lambda x: x,
                                      filters=[CountFilter(lambda c: c >= 5, sentiment=Sentiment.POSITIVE)])
+new_last_fm = DatasetConfiguration(
+    'new-last-fm',  
+    lambda x: x
+)
 
 datasets = [mindreader, movielens, ml_mr, ml_mr_1m, synthetic, synthetic_1m, synthetic_16, lastfm, amazon_book,
-            amazon_book_simplex, amazon_beauty, amazon_book_s]
+            amazon_book_simplex, amazon_beauty, amazon_book_s, new_last_fm]
 dataset_names = [d.name for d in datasets]
